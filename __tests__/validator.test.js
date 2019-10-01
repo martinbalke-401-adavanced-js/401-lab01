@@ -52,7 +52,7 @@ describe('validator module performs basic validation of', () => {
   //Testing for Boolean
   testingArray.forEach( (input) => {
     it('Checks the type of an input for boolean', () => {
-      typeof input === 'boolean' ? expect(validator.isTruthy(input)).toBeTruthy() :expect(validator.isTruthy(input)).toBeFalsy();
+      typeof input === 'boolean' ? expect(validator.isBoolean(input)).toBeTruthy() :expect(validator.isBoolean(input)).toBeFalsy();
     });
   });
   
