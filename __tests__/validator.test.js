@@ -59,29 +59,61 @@ describe('validator module performs basic validation of', () => {
 
 });
 
-// describe('validator module performs complex validations', () => {
+// describe('validator module performs complex validations on Objects', () => {
+
+//   const testObject = {
+//     name: 'Harry Potter',
+//     job: 'Wizard',
+//     pets: { name: 'Hedwig', species: 'owl' },
+//     friends: ['Hermoine', 'Ron'],
+//     parents: [],
+//   };
+
+//   it('validates all passed in parameters before proceeding', () => {
+//     expect(validator.isValidObject()).toBe('Please use a non empty object as an input');
+//     expect(validator.isValidObject({})).toBe('Please use a non empty array as an input');
+//     expect(validator.isValidObject({name: 'bob'})).toBe('Please provide the validator with a rule');
+//   });
 
 //   it('validates the presence of required object properties at any level', () => {
-//     // i.e. does person.hair.color exist and have a good value, not just person.hair
-//     expect(true).toBeFalsy();
+//     expect(validator.isValidObject({ name: 'bob' }, 'bob')).toBeTruthy();
+//     expect(validator.isValidObject(testObject, 'Hedwig')).toBeTruthy();
+//     expect(validator.isValidObject({ testObject }, 'parents')).toBeFalsy();
 //   });
 
 //   it('validates the proper types of object properties', () => {
-//     // i.e. person.name must be a string, etc.
-//     expect(true).toBeFalsy();
+//     expect(validator.isValidObject(testObject.pets, 'object')).toBeTruthy();
+//     expect(validator.isValidObject(testObject.friends, 'array')).toBeTruthy();
+//     expect(validator.isValidObject(testObject.job, 'number')).toBeTruthy();
+
 //   });
 
-//   it('validates the types of values contained in an array', () => {
-//     // i.e. an array of all strings or numbers
-//     expect(true).toBeFalsy();
-//   });
 
-//   it('validates a value array against an approved list', () => {
-//     // i.e. a string might only be allowed to be "yes" or "no"
-//     expect(true).toBeFalsy();
-//   });
-
-//   // TODO: Cover so, so many more cases
 
 // });
+describe('validator module performs complex validations on Arrays', () => {
+
+  it('validates all passed in parameters before proceeding', () => {
+
+    expect(validator.isValidArray()).toBe('Please use a non empty array as an input');
+    expect(validator.isValidArray([])).toBe('Please use a non empty array as an input');
+    expect(validator.isValidArray(['1','2'])).toBe('Please Provide a rule for validation');
+  });
+
+  it('validates the types of values contained in an array', () => {
+    expect(validator.isValidArray([1,2,3,4], 'string')).toBeFalsy();
+    expect(validator.isValidArray([1,2,3,4], 'number')).toBeTruthy();
+    expect(validator.isValidArray(['1',2,'3',4], 'string')).toBeFalsy();
+    expect(validator.isValidArray(['the lazy brown cat', 'hello'], 'string')).toBeTruthy();
+  });
+
+  it('validates a value array against an approved list', () => {
+    expect(validator.isValidArray([1, 2, 3, 4], [3,2,6])).toBeFalsy();
+    expect(validator.isValidArray([1, 2, 3, 4], [4,3,2])).toBeTruthy();
+    expect(validator.isValidArray(['the lazy brown cat', 'hello'], ['hello'])).toBeTruthy();
+
+  });
+
+
+});
 
