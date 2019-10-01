@@ -59,44 +59,46 @@ describe('validator module performs basic validation of', () => {
 
 });
 
-// describe('validator module performs complex validations on Objects', () => {
+describe('validator module performs complex validations on Objects', () => {
 
-//   const testObject = {
-//     name: 'Harry Potter',
-//     job: 'Wizard',
-//     pets: { name: 'Hedwig', species: 'owl' },
-//     friends: ['Hermoine', 'Ron'],
-//     parents: [],
-//   };
+  // const testObject = {
+  //   name: 'Harry Potter',
+  //   job: 'Wizard',
+  //   pets: { name: 'Hedwig', species: 'owl' },
+  //   friends: ['Hermoine', 'Ron'],
+  //   parents: [],
+  // };
 
-//   it('validates all passed in parameters before proceeding', () => {
-//     expect(validator.isValidObject()).toBe('Please use a non empty object as an input');
-//     expect(validator.isValidObject({})).toBe('Please use a non empty array as an input');
-//     expect(validator.isValidObject({name: 'bob'})).toBe('Please provide the validator with a rule');
-//   });
+  // it('validates all passed in parameters before proceeding', () => {
+  //   expect(validator.isValidObject()).toBe('Please use a non empty object as an input');
+  //   expect(validator.isValidObject({})).toBe('Please use a non empty object as an input');
+  //   expect(validator.isValidObject('Hi')).toBe('Please use a non empty object as an input');
+  //   expect(validator.isValidObject({name: 'bob'})).toBe('Please provide the validator with a rule');
+  // });
 
-//   it('validates the presence of required object properties at any level', () => {
-//     expect(validator.isValidObject({ name: 'bob' }, 'bob')).toBeTruthy();
-//     expect(validator.isValidObject(testObject, 'Hedwig')).toBeTruthy();
-//     expect(validator.isValidObject({ testObject }, 'parents')).toBeFalsy();
-//   });
+  // it('validates the presence of required object properties at any level', () => {
+  //   expect(validator.isValidObject({ name: 'bob' }, 'bob')).toBeTruthy();
+  //   expect(validator.isValidObject(testObject, 'Hedwig')).toBeTruthy();
+  //   expect(validator.isValidObject({ testObject }, 'parents')).toBeFalsy();
+  // });
 
-//   it('validates the proper types of object properties', () => {
-//     expect(validator.isValidObject(testObject.pets, 'object')).toBeTruthy();
-//     expect(validator.isValidObject(testObject.friends, 'array')).toBeTruthy();
-//     expect(validator.isValidObject(testObject.job, 'number')).toBeTruthy();
+  // it('validates the proper types of object properties', () => {
+  //   expect(validator.isValidObject(testObject.pets, 'object')).toBeTruthy();
+  //   expect(validator.isValidObject(testObject.friends, 'array')).toBeTruthy();
+  //   expect(validator.isValidObject(testObject.job, 'number')).toBeTruthy();
 
-//   });
+  // });
 
 
 
-// });
+});
 describe('validator module performs complex validations on Arrays', () => {
 
   it('validates all passed in parameters before proceeding', () => {
 
     expect(validator.isValidArray()).toBe('Please use a non empty array as an input');
     expect(validator.isValidArray([])).toBe('Please use a non empty array as an input');
+    expect(validator.isValidArray({person: 'james'})).toBe('Please use a non empty array as an input');
     expect(validator.isValidArray(['1','2'])).toBe('Please Provide a rule for validation');
   });
 
