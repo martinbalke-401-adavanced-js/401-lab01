@@ -1,44 +1,44 @@
-# LAB - 
+# LAB - 01
 
-## Project Name
+## Project Name 
+401 Lab 01
 
-### Author: Student/Group Name
+### Author: Martin Balke
 
 ### Links and Resources
-* [submission PR](http://xyz.com)
-* [travis](http://xyz.com)
-* [front-end](http://xyz.com) (when applicable)
+* [submission PR]https://github.com/martinbalke-401-adavanced-js/401-lab01/pull/2
+* [travis]https://www.travis-ci.com/martinbalke-401-adavanced-js/401-lab01
 
-#### Documentation
-* [jsdoc](http://xyz.com) (Server assignments)
-* [styleguide](http://xyz.com) (React assignments)
 
 ### Modules
-#### `modulename.js`
+#### `validator.js`
 ##### Exported Values and Methods
 
-###### `foo(thing) -> string`
-Usage Notes or examples
+###### `isValidObject({object}, rules) -> boolean`
+Inputs are an Object and a string as rules for checking the provided object
 
-###### `bar(array) -> array`
-Usage Notes or examples
+###### `isValidArray([array], rules) -> boolean`
+Inputs are an array and a string or array as rules. This method validates whether or not a given input is an array and then checks that array against a set of rules. If the rule input is a string then it uses that as a type check for the array. If the rule input is an array it checks to see if the array input includes the rules and returns a boolean.
 
-### Setup
-#### `.env` requirements
-* `PORT` - Port Number
-* `MONGODB_URI` - URL to the running mongo instance/db
+###### `isString(input) -> boolean`
+Tests a given input for whether or not it is of the type String
+
+###### `isNumber(input) -> boolean`
+Tests a given input for whether or not it is of the type Number
+
+###### `isArray(input) -> boolean`
+Tests a given input for whether or not it is of the type array
+
+###### `isBoolean(input) -> boolean`
+Tests a given input for whether or not it is of the type Boolean
+
 
 #### Running the app
 * `npm start`
-* Endpoint: `/foo/bar/`
-  * Returns a JSON object with abc in it.
-* Endpoint: `/bing/zing/`
-  * Returns a JSON object with xyz in it.
+
   
 #### Tests
 * How do you run tests?
+* `npm test`
 * What assertions were made?
 * What assertions need to be / should be made?
-
-#### UML
-Link to an image of the UML for your application and response to events
