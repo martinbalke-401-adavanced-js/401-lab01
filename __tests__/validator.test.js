@@ -69,12 +69,12 @@ describe('validator module performs complex validations on Objects', () => {
   //   parents: [],
   // };
 
-  // it('validates all passed in parameters before proceeding', () => {
-  //   expect(validator.isValidObject()).toBe('Please use a non empty object as an input');
-  //   expect(validator.isValidObject({})).toBe('Please use a non empty object as an input');
-  //   expect(validator.isValidObject('Hi')).toBe('Please use a non empty object as an input');
-  //   expect(validator.isValidObject({name: 'bob'})).toBe('Please provide the validator with a rule');
-  // });
+  it('validates all passed in parameters before proceeding', () => {
+    expect(validator.isValidObject()).toBe('Please use a non empty object as an input');
+    expect(validator.isValidObject({})).toBe('Please use a non empty object as an input');
+    expect(validator.isValidObject('Hi')).toBe('Please use a non empty object as an input');
+    expect(validator.isValidObject({name: 'bob'})).toBe('Please provide the validator with a rule');
+  });
 
   // it('validates the presence of required object properties at any level', () => {
   //   expect(validator.isValidObject({ name: 'bob' }, 'bob')).toBeTruthy();
